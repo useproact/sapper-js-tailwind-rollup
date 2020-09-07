@@ -1,5 +1,12 @@
 # Sapper (Javascript) + Tailwind + Rollup Template
 
+## Types of templates
+
+1. [Regular](https://github.com/useproact/sapper-js-tailwind-rollup) - Vanilla Sapper (Javascript) + Tailwind + Rollup setup
+2. [Linting](https://github.com/useproact/sapper-js-tailwind-rollup/tree/lint) - ESLint + Prettier setup
+3. [Storybook](https://github.com/useproact/sapper-js-tailwind-rollup/tree/storybook) - Linting + Storybook integration with necessary plugins
+4. [Atomic](https://github.com/useproact/sapper-js-tailwind-rollup/tree/atomic) - Storybook + Atomic component folder structure with example
+
 ### Running the project
 
 However you get the code, you can install dependencies and run the project in development mode with:
@@ -12,6 +19,21 @@ yarn dev # or npm run dev
 
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
 
+## Commiting changes
+
+Install commitizen
+
+```bash
+npm install commitizen -g
+```
+
+Once installed you can follow this as you regular commit workflow
+
+```bash
+git add .
+cz
+// answer the questions to follow commit best practices
+```
 
 ## Structure
 

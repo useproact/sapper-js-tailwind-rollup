@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "sapper-js-tailwind-rollup",
+  "description": "Sapper (JS) + Tailwind + Rollup template",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
@@ -28,6 +28,7 @@
     "@rollup/plugin-replace": "^2.2.0",
     "autoprefixer": "^9.8.5",
     "cssnano": "^4.1.10",
+    "cz-conventional-changelog": "^3.3.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.1",
     "postcss-import": "^12.0.1",
@@ -38,5 +39,26 @@
     "svelte": "^3.0.0",
     "svelte-preprocess": "^4.0.8",
     "tailwindcss": "^1.6.0"
-  }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/useproact/sapper-js-tailwind-rollup.git"
+  },
+  "keywords": [
+    "Sapper",
+    "Javascript",
+    "Tailwind",
+    "Rollup",
+    "Template"
+  ],
+  "author": "Jerric Lyns John <jerriclynsjohn@outlook.com> (https://useproact.com)",
+  "bugs": {
+    "url": "https://github.com/useproact/sapper-js-tailwind-rollup/issues"
+  },
+  "homepage": "https://github.com/useproact/sapper-js-tailwind-rollup#readme"
 }
