@@ -1,0 +1,30 @@
+{
+	"singleQuote": true,
+	"trailingComma": "all",
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 130,
+	"arrowParens": "avoid",
+	"bracketSpacing": false,
+	"svelteSortOrder": "scripts-markup-styles",
+	"overrides": [
+		{
+			"files": [".prettierrc"],
+			"options": {
+				"parser": "json"
+			}
+		},
+		{
+			"files": ["package.json"],
+			"options": {
+				"printWidth": 180
+			}
+		},
+		{
+			"files": [".eslintrc.js", "postcss.config.js", "tailwind.config.js"],
+			"options": {
+				"printWidth": 150
+			}
+		}
+	]
+}

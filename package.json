@@ -1,64 +1,84 @@
 {
-  "name": "sapper-js-tailwind-rollup",
-  "description": "Sapper (JS) + Tailwind + Rollup template",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "sapper dev",
-    "build": "NODE_ENV=production sapper build --legacy",
-    "export": "NODE_ENV=production sapper export --legacy",
-    "start": "node __sapper__/build",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
-  },
-  "dependencies": {
-    "compression": "^1.7.1",
-    "polka": "next",
-    "sirv": "^0.4.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "@rollup/plugin-babel": "^5.0.0",
-    "@rollup/plugin-commonjs": "^12.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
-    "@rollup/plugin-replace": "^2.2.0",
-    "autoprefixer": "^9.8.5",
-    "cssnano": "^4.1.10",
-    "cz-conventional-changelog": "^3.3.0",
-    "npm-run-all": "^4.1.5",
-    "postcss-cli": "^7.1.1",
-    "postcss-import": "^12.0.1",
-    "rollup": "^2.3.4",
-    "rollup-plugin-svelte": "^5.0.1",
-    "rollup-plugin-terser": "^5.3.0",
-    "sapper": "^0.27.0",
-    "svelte": "^3.0.0",
-    "svelte-preprocess": "^4.0.8",
-    "tailwindcss": "^1.6.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/useproact/sapper-js-tailwind-rollup.git"
-  },
-  "keywords": [
-    "Sapper",
-    "Javascript",
-    "Tailwind",
-    "Rollup",
-    "Template"
-  ],
-  "author": "Jerric Lyns John <jerriclynsjohn@outlook.com> (https://useproact.com)",
-  "bugs": {
-    "url": "https://github.com/useproact/sapper-js-tailwind-rollup/issues"
-  },
-  "homepage": "https://github.com/useproact/sapper-js-tailwind-rollup#readme"
+	"name": "sapper-js-tailwind-rollup",
+	"description": "Sapper (JS) + Tailwind + Rollup template",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "sapper dev",
+		"build": "NODE_ENV=production sapper build --legacy",
+		"export": "NODE_ENV=production sapper export --legacy",
+		"start": "node __sapper__/build",
+		"cy:run": "cypress run",
+		"cy:open": "cypress open",
+		"test": "run-p --race dev cy:run",
+		"format": "prettier --write ./**/*.{js,svelte,md,html,css,json}",
+		"prelint": "npm run format",
+		"lint": "eslint './**/*.{js,svelte}'",
+		"lint:fix": "eslint --fix './**/*.{js,svelte}'",
+		"pretest": "npm run lint"
+	},
+	"dependencies": {
+		"compression": "^1.7.1",
+		"polka": "next",
+		"sirv": "^0.4.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.0.0",
+		"@babel/plugin-syntax-dynamic-import": "^7.0.0",
+		"@babel/plugin-transform-runtime": "^7.0.0",
+		"@babel/preset-env": "^7.0.0",
+		"@babel/runtime": "^7.0.0",
+		"@rollup/plugin-babel": "^5.0.0",
+		"@rollup/plugin-commonjs": "^12.0.0",
+		"@rollup/plugin-node-resolve": "^8.0.0",
+		"@rollup/plugin-replace": "^2.2.0",
+		"autoprefixer": "^9.8.5",
+		"cssnano": "^4.1.10",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^7.8.1",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-cypress": "^2.11.1",
+		"eslint-plugin-svelte3": "^2.7.3",
+		"npm-run-all": "^4.1.5",
+		"postcss-cli": "^7.1.1",
+		"postcss-import": "^12.0.1",
+		"prettier": "^2.1.1",
+		"prettier-plugin-svelte": "^1.2.1",
+		"rollup": "^2.3.4",
+		"rollup-plugin-svelte": "^5.0.1",
+		"rollup-plugin-terser": "^5.3.0",
+		"sapper": "^0.27.0",
+		"svelte": "^3.0.0",
+		"svelte-preprocess": "^4.0.8",
+		"tailwindcss": "^1.6.0"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/useproact/sapper-js-tailwind-rollup.git"
+	},
+	"keywords": [
+		"Sapper",
+		"Javascript",
+		"Tailwind",
+		"Rollup",
+		"Template"
+	],
+	"author": "Jerric Lyns John <jerriclynsjohn@outlook.com> (https://useproact.com)",
+	"bugs": {
+		"url": "https://github.com/useproact/sapper-js-tailwind-rollup/issues"
+	},
+	"homepage": "https://github.com/useproact/sapper-js-tailwind-rollup#readme",
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "eslint --cache --fix",
+		"*.{js,svelte,md,html,css,json}": "prettier --write"
+	}
 }
