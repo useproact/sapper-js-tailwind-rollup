@@ -1,0 +1,37 @@
+{
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": false,
+    "tabWidth": 4,
+    "printWidth": 100,
+    "arrowParens": "avoid",
+    "bracketSpacing": false,
+
+    "svelteSortOrder": "scripts-markup-styles",
+    "overrides": [
+        {
+            "files": [".prettierrc"],
+            "options": {
+                "parser": "json"
+            }
+        },
+        {
+            "files": "*.svx",
+            "options": {
+                "parser": "mdx"
+            }
+        },
+        {
+            "files": ["package.json"],
+            "options": {
+                "printWidth": 180
+            }
+        },
+        {
+            "files": [".eslintrc.js", "postcss.config.js", "tailwind.config.js"],
+            "options": {
+                "printWidth": 150
+            }
+        }
+    ]
+}
