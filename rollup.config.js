@@ -9,6 +9,7 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import sveltePreprocess from 'svelte-preprocess';
+import { mdsvex } from "mdsvex";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -18,6 +19,8 @@ const onwarn = (warning, onwarn) =>
 	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
 	onwarn(warning);
+
+const extensions = [".svelte", ".svx"];
 
 export default {
 	client: {
@@ -29,7 +32,8 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			svelte({
-				preprocess: sveltePreprocess({ postcss: true }),
+				extensions,
+				preprocess: [mdsvex(), sveltePreprocess({ postcss: true })],
 				emitCss: true,
 				compilerOptions: {
 					dev,
@@ -47,7 +51,7 @@ export default {
 			commonjs(),
 
 			legacy && babel({
-				extensions: ['.js', '.mjs', '.html', '.svelte'],
+				extensions: ['.js', '.mjs', '.html', ...extensions],
 				babelHelpers: 'runtime',
 				exclude: ['node_modules/@babel/**'],
 				presets: [
@@ -81,7 +85,8 @@ export default {
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
 			svelte({
-				preprocess: sveltePreprocess({ postcss: true }),
+				extensions,
+				preprocess: [mdsvex(), sveltePreprocess({ postcss: true })],
 				emitCss: false,
 				compilerOptions: {
 					dev,
