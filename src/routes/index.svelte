@@ -2,7 +2,7 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1 class="text-6xl">Great success!</h1>
+<h1 class="text-5xl">Great success!!</h1>
 
 <figure>
 	<img alt='Success Kid' src='successkid.jpg'>
