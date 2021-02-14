@@ -1,9 +1,10 @@
 <script context="module">
-    export function preload({params, query}) {
+    // eslint-disable-next-line no-unused-vars
+    export function preload({ params, query }) {
         return this.fetch(`blog.json`)
             .then(r => r.json())
             .then(posts => {
-                return {posts};
+                return { posts };
             });
     }
 </script>

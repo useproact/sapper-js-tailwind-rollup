@@ -9,7 +9,7 @@
 
 ### Setting up and running the project
 
-- Regular
+-   Regular
 
 ```bash
 npx degit useproact/sapper-js-tailwind-rollup my-sapper-project
@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-- Linting
+-   Linting
 
 ```bash
 npx degit useproact/sapper-js-tailwind-rollup#lint my-sapper-project
@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-- Storybook
+-   Storybook
 
 ```bash
 npx degit useproact/sapper-js-tailwind-rollup#storybook my-sapper-project
@@ -36,7 +36,7 @@ npm install
 npm run dev
 ```
 
-- Atomic
+-   Atomic
 
 ```bash
 npx degit useproact/sapper-js-tailwind-rollup#atomic my-sapper-project
@@ -81,9 +81,9 @@ This is the heart of your Sapper app. There are two kinds of routes — _pages_,
 
 There are three simple rules for naming the files that define your routes:
 
-- A file called `src/routes/about.svelte` corresponds to the `/about` route. A file called `src/routes/blog/[slug].svelte` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to the route
-- The file `src/routes/index.svelte` (or `src/routes/index.js`) corresponds to the root of your app. `src/routes/about/index.svelte` is treated the same as `src/routes/about.svelte`.
-- Files and directories with a leading underscore do _not_ create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `src/routes/_helpers/datetime.js` and it would _not_ create a `/_helpers/datetime` route
+-   A file called `src/routes/about.svelte` corresponds to the `/about` route. A file called `src/routes/blog/[slug].svelte` corresponds to the `/blog/:slug` route, in which case `params.slug` is available to the route
+-   The file `src/routes/index.svelte` (or `src/routes/index.js`) corresponds to the root of your app. `src/routes/about/index.svelte` is treated the same as `src/routes/about.svelte`.
+-   Files and directories with a leading underscore do _not_ create routes. This allows you to colocate helper modules and components with the routes that depend on them — for example you could have a file called `src/routes/_helpers/datetime.js` and it would _not_ create a `/_helpers/datetime` route
 
 ### static
 
@@ -92,7 +92,7 @@ The [static](static) directory contains any static assets that should be availab
 In your [service-worker.js](src/service-worker.js) file, you can import these as `files` from the generated manifest...
 
 ```js
-import { files } from "@sapper/service-worker";
+import { files } from '@sapper/service-worker';
 ```
 
 ...so that you can cache them (though you can choose not to, for example if you don't want to cache very large files).

@@ -4,5 +4,6 @@
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "EditorConfig.EditorConfig",
+        "silvenon.mdx"
     ]
 }

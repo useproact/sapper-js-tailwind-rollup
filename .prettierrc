@@ -5,33 +5,31 @@
     "tabWidth": 4,
     "printWidth": 100,
     "arrowParens": "avoid",
-    "bracketSpacing": false,
+    "bracketSpacing": true,
 
-    "svelteSortOrder": "scripts-markup-styles",
+    "svelteSortOrder": "options-scripts-markup-styles",
+    "svelteStrictMode": false,
+    "svelteAllowShorthand": true,
+    "svelteBracketNewLine": false,
+    "svelteIndentScriptAndStyle": true,
+    "plugins": ["prettier-plugin-svelte", "svelte"],
+
     "overrides": [
         {
             "files": [".prettierrc"],
-            "options": {
-                "parser": "json"
-            }
+            "options": { "parser": "json" }
         },
         {
             "files": "*.svx",
-            "options": {
-                "parser": "mdx"
-            }
+            "options": { "parser": "markdown" }
         },
         {
             "files": ["package.json"],
-            "options": {
-                "printWidth": 180
-            }
+            "options": { "printWidth": 180 }
         },
         {
             "files": [".eslintrc.js", "postcss.config.js", "tailwind.config.js"],
-            "options": {
-                "printWidth": 150
-            }
+            "options": { "printWidth": 150 }
         }
     ]
 }

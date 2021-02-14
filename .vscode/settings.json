@@ -1,8 +1,8 @@
 {
     // For ESLint
-    "eslint.validate": ["svelte", "json", "jsonc"],
+    "eslint.validate": ["javascript", "javascriptreact", "svelte", "json", "jsonc"],
     "editor.codeActionsOnSave": {
-        "source.fixAll": false
+        "source.fixAll": true
     },
     // For Prettier
     "editor.formatOnSave": true,
@@ -15,5 +15,5 @@
     "[svelte]": {
         "editor.defaultFormatter": "svelte.svelte-vscode"
     },
-    "files.associations": {"*.svx": "markdown"}
+    "files.associations": { "*.svx": "markdown" }
 }
