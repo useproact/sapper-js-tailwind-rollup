@@ -1,5 +1,7 @@
 <script>
+    // TailwindCSS main import
     import GlobalStyle from '../components/GlobalStyle.svelte';
+
     import Nav from '../components/Nav.svelte';
 
     export let segment;

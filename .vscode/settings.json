@@ -1,6 +1,7 @@
 {
     // For ESLint
     "eslint.validate": ["javascript", "javascriptreact", "svelte", "json", "jsonc"],
+    "eslint.format.enable": true,
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },

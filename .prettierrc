@@ -26,10 +26,6 @@
         {
             "files": ["package.json"],
             "options": { "printWidth": 180 }
-        },
-        {
-            "files": [".eslintrc.js", "postcss.config.js", "tailwind.config.js"],
-            "options": { "printWidth": 150 }
         }
     ]
 }

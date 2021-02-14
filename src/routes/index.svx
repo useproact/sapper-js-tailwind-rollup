@@ -2,41 +2,9 @@
 title: Intro
 ---
 
-<style>
-    h1,
-    figure,
-    p {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    h1 {
-        font-size: 2.8em;
-        text-transform: uppercase;
-        font-weight: 700;
-        margin: 0 0 0.5em 0;
-    }
-
-    figure {
-        margin: 0 0 1em 0;
-    }
-
-    img {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 0 1em 0;
-    }
-
-    p {
-        margin: 1em auto;
-    }
-
-    @media (min-width: 480px) {
-        h1 {
-            font-size: 4em;
-        }
-    }
-</style>
+<script>
+    import H1 from '../components/H1.svelte';
+</script>
 
 <svelte:head>
     <title>Sapper project template</title>
@@ -44,8 +12,46 @@ title: Intro
 
 # Great success!
 
-<h1>Great Success</h1>
+<H1 />
+<button>This is new</button>
 
-![Borat](successkid.jpg)
+![ Borat ]( successkid.jpg )
 
 **Try editing this file (src/routes/index.svelte) to test live reloading.**
+
+<style lang="postcss">
+button {
+    @apply bg-green-500 hover:bg-green-600 text-white text-base font-bold uppercase py-3 px-15 rounded focus:outline-none flex flex-wrap justify-between;
+}
+
+h1,
+figure,
+p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1 {
+    @apply font-bold text-9xl p-8 text-green-600;
+}
+
+figure {
+    margin: 0 0 1em 0;
+}
+
+img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 0 1em 0;
+}
+
+p {
+    margin: 1em auto;
+}
+
+@media (min-width: 480px) {
+    h1 {
+        font-size: 4em;
+    }
+}
+</style>

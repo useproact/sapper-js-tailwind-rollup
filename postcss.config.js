@@ -1,18 +1,12 @@
-const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
+const tailwind = require('tailwindcss');
+const postcssimport = require('postcss-import');
+const postcssurl = require('postcss-url');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
-module.exports = {
-    plugins: [
-        require('postcss-import')(),
-        require('postcss-url')(),
-        require('tailwindcss')('./tailwind.config.js'),
-        require('autoprefixer')(),
-        !dev &&
-            require('@fullhuman/postcss-purgecss')({
-                content: ['./src/**/*.svelte', './src/**/*.html'],
-                // eslint-disable-next-line no-unused-vars
-                defaultExtractor: content => [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
-            }),
-        !dev && require('cssnano')({ preset: 'default' }),
-    ],
-};
+const plugins =
+    process.env.NODE_ENV === 'production'
+        ? [postcssimport, postcssurl, tailwind, autoprefixer, cssnano]
+        : [postcssimport, postcssurl, tailwind, autoprefixer];
+
+module.exports = { plugins };

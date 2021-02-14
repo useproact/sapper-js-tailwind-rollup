@@ -4,3 +4,8 @@ yarn-error.log
 /__sapper__
 /static/global.css
 .env
+.svx
+.DS_Store
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
