@@ -1,7 +1,7 @@
 {
     "name": "sapper-js-tailwind-rollup",
     "description": "Sapper (JS) + Tailwind + Rollup template",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "scripts": {
         "format": "prettier --check .",
         "format:fix": "prettier --write .",
