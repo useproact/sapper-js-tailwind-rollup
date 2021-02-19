@@ -1,4 +1,4 @@
-<h1 class="text-blue-600">Great Success</h1>
+<h1 class="text-blue-600"><slot /></h1>
 
 <style lang="postcss">
     h1 {
