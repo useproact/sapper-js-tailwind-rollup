@@ -3,6 +3,7 @@ node_modules
 yarn-error.log
 /__sapper__
 /static/global.css
+.eslintcache
 .env
 .svx
 .DS_Store
