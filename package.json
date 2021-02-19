@@ -5,6 +5,7 @@
     "scripts": {
         "format": "prettier --check .",
         "format-fix": "prettier --write .",
+        "prelint": "npm run format-fix",
         "lint": "eslint --ext .cjs,.js,.ts,.json,.svelte .",
         "lint-fix": "eslint --fix --ext .cjs,.js,.ts,.json,.svelte .",
         "dev": "sapper dev --ext \".svelte .svx\"",
@@ -63,11 +64,12 @@
     },
     "husky": {
         "hooks": {
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
             "pre-commit": "lint-staged"
         }
     },
     "lint-staged": {
-        "*.{cjs,js,ts,json,svelte}": "eslint --cache --fix",
+        "*.{js,svelte,md,html,css,json,svx}": "prettier --write",
         "*.{js,svelte}": "eslint --cache --fix"
     }
 }
