@@ -1,18 +1,18 @@
-import posts from './_posts.js';
+import { getResources } from '../../utils/fetch-all.js';
 
-const contents = JSON.stringify(
-    posts.map(post => {
-        return {
-            title: post.title,
-            slug: post.slug,
-        };
-    }),
-);
+export async function get(req, res, next) {
+    const { limit, title } = req.query;
 
-export function get(req, res) {
-    res.writeHead(200, {
-        'Content-Type': 'application/json',
-    });
+    let result = getResources('blog');
 
-    res.end(contents);
+    if (limit) result = result.slice(0, limit);
+    if (title) result = result.filter(item => item.title === title);
+
+    if (result !== null) {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(result));
+        return;
+    }
+
+    next();
 }

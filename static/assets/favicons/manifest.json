@@ -1,19 +1,20 @@
 {
+    "background_color": "#16a34a",
+    "theme_color": "#16a34a",
     "name": "Newwwton",
     "short_name": "Newwwton",
+    "display": "standalone",
+    "start_url": "/",
     "icons": [
         {
             "src": "/assets/favicons/android-chrome-192x192.png?v=693vbmmbqB",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
         },
         {
             "src": "/assets/favicons/android-chrome-512x512.png?v=693vbmmbqB",
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "theme_color": "#16a34a",
-    "background_color": "#16a34a",
-    "display": "standalone"
+    ]
 }

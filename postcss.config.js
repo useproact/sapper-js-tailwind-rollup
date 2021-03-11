@@ -1,8 +1,8 @@
 const tailwind = require('tailwindcss');
 const postcssimport = require('postcss-import');
 const postcssurl = require('postcss-url');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer')({ overrideBrowserslist: 'last 2 versions' });
+const cssnano = require('cssnano')({ preset: 'default' });
 
 const plugins =
     process.env.NODE_ENV === 'production'

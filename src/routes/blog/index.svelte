@@ -10,12 +10,12 @@
 </script>
 
 <script>
+    import SEO from '@/components/SEO.svelte';
+
     export let posts;
 </script>
 
-<svelte:head>
-    <title>Blog</title>
-</svelte:head>
+<SEO title="Blogs" />
 
 <h1>Recent posts</h1>
 

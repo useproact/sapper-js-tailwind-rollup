@@ -3,25 +3,24 @@ title: Intro
 ---
 
 <script>
-    import H1 from '../components/H1.svelte';
+    import H1 from '@/components/H1.svelte';
+    import SEO from '@/components/SEO.svelte';
 </script>
 
-<svelte:head>
-    <title>Sapper project template</title>
-</svelte:head>
+<SEO title="Home" />
 
 # Great success!
 
 <H1 />
 <button>This is new</button>
 
-![ Borat ]( successkid.jpg )
+![ Borat ](assets/images/successkid.jpg)
 
 **Try editing this file (src/routes/index.svelte) to test live reloading.**
 
 <style lang="postcss">
 button {
-    @apply bg-green-500 hover:bg-green-600 text-white text-base font-bold uppercase py-3 px-15 rounded focus:outline-none flex flex-wrap justify-between;
+    @apply bg-green-600 hover:bg-green-600 text-white text-base font-bold uppercase py-3 px-15 rounded focus:outline-none flex flex-wrap justify-between;
 }
 
 h1,

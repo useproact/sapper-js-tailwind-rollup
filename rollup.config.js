@@ -5,6 +5,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import url from '@rollup/plugin-url';
 import svelte from 'rollup-plugin-svelte';
 import babel from '@rollup/plugin-babel';
+import alias from '@rollup/plugin-alias';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
@@ -18,27 +19,38 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 const onwarn = (warning, onwarn) =>
     (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
     (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
+    (warning.plugin === 'css' &&
+        warning.message === 'No directory provided. Skipping CSS generation') ||
     onwarn(warning);
 
 const extensions = ['.svelte', '.svx'];
+
+const svelteOptions = {
+    extensions: extensions,
+    preprocess: [sveltePreprocess({ postcss: true }), mdsvex()],
+};
 
 export default {
     client: {
         input: config.client.input(),
         output: config.client.output(),
         plugins: [
+            alias({
+                entries: [{ find: '@', replacement: path.resolve(__dirname, 'src/') }],
+            }),
             replace({
-                'process.browser': true,
-                'process.env.NODE_ENV': JSON.stringify(mode),
+                preventAssignment: true,
+                values: {
+                    'process.browser': true,
+                    'process.env.NODE_ENV': JSON.stringify(mode),
+                },
             }),
             svelte({
-                extensions,
-                preprocess: [mdsvex(), sveltePreprocess({ postcss: true })],
-                emitCss: true,
                 compilerOptions: {
                     dev,
                     hydratable: true,
                 },
+                ...svelteOptions,
             }),
             url({
                 sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
@@ -52,7 +64,7 @@ export default {
 
             legacy &&
                 babel({
-                    extensions: ['.js', '.mjs', '.html', ...extensions],
+                    extensions: ['.js', '.mjs', '.html', '.svelte'],
                     babelHelpers: 'runtime',
                     exclude: ['node_modules/@babel/**'],
                     presets: [
@@ -88,19 +100,24 @@ export default {
         input: config.server.input(),
         output: config.server.output(),
         plugins: [
+            alias({
+                entries: [{ find: '@', replacement: path.resolve(__dirname, 'src/') }],
+            }),
             replace({
-                'process.browser': false,
-                'process.env.NODE_ENV': JSON.stringify(mode),
+                preventAssignment: true,
+                values: {
+                    'process.browser': false,
+                    'process.env.NODE_ENV': JSON.stringify(mode),
+                },
             }),
             svelte({
-                extensions,
-                preprocess: [mdsvex(), sveltePreprocess({ postcss: true })],
-                emitCss: false,
                 compilerOptions: {
                     dev,
                     generate: 'ssr',
                     hydratable: true,
                 },
+                emitCss: false,
+                ...svelteOptions,
             }),
             url({
                 sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
@@ -124,8 +141,11 @@ export default {
         plugins: [
             resolve(),
             replace({
-                'process.browser': true,
-                'process.env.NODE_ENV': JSON.stringify(mode),
+                preventAssignment: true,
+                values: {
+                    'process.browser': false,
+                    'process.env.NODE_ENV': JSON.stringify(mode),
+                },
             }),
             commonjs(),
             !dev && terser(),

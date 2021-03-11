@@ -9,8 +9,8 @@
         "lint": "eslint --ext .cjs,.js,.ts,.json,.svelte .",
         "lint-fix": "eslint --fix --ext .cjs,.js,.ts,.json,.svelte .",
         "dev": "sapper dev --ext \".svelte .svx\"",
-        "build": "NODE_ENV=production sapper build --legacy --ext \".svelte .svx\"",
-        "export": "NODE_ENV=production sapper export --legacy --ext \".svelte .svx\"",
+        "build": "NODE_ENV=production sapper build --ext \".svelte .svx\" --legacy",
+        "export": "NODE_ENV=production sapper export --ext \".svelte .svx\" --legacy",
         "start": "node __sapper__/build"
     },
     "dependencies": {
@@ -24,6 +24,7 @@
         "@babel/plugin-transform-runtime": "^7.12.15",
         "@babel/preset-env": "^7.12.16",
         "@babel/runtime": "^7.12.13",
+        "@rollup/plugin-alias": "^3.1.2",
         "@rollup/plugin-babel": "^5.2.3",
         "@rollup/plugin-commonjs": "^17.1.0",
         "@rollup/plugin-node-resolve": "^11.1.1",
@@ -37,6 +38,7 @@
         "eslint-config-prettier": "^7.2.0",
         "eslint-plugin-prettier": "^3.3.1",
         "eslint-plugin-svelte3": "^3.0.0",
+        "front-matter": "^4.0.2",
         "husky": "^4.3.8",
         "lint-staged": "^10.5.4",
         "mdsvex": "^0.8.9",
